@@ -10,7 +10,7 @@ void Board::print(){
         for (int j = 0; j<width; j++ ) {
             std::cout << canvas[i][j];
         }
-        std::cout << std::endl;
+        std::cout << "\n";
     }
 }
 
