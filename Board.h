@@ -6,12 +6,12 @@
 
 class Board {
 private:
-    int height;
     int width;
+    int height;
     std::vector<std::vector<char>> canvas;
     std::vector<std::unique_ptr<Shape>> shapes;
 public:
-    bool isInside(int x, int y);
+    bool isInside(int x, int y) const;
     int getWidth() const;
     int getHeight() const;
     bool setCell(int x, int y, char ch);

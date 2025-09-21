@@ -15,11 +15,3 @@ char Shape::colourToChar(Colour c) {
             return '*';
     }
 }
-char Shape::filledToChar(FillStat f) {
-    switch (f) {
-        case FillStat::FILLED:
-            return 'F';
-        case FillStat::FRAME:
-            return 'NF';
-    }
-}

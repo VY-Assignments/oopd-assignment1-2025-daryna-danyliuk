@@ -2,6 +2,8 @@
 #define RECTANGLE_H
 
 #include "Shape.h"
+#include "Board.h"
+
 
 class Rectangle : public Shape {
 private:
