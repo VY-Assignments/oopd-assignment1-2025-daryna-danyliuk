@@ -2,7 +2,7 @@
 #include <vector>
 #include <iostream>
 
-Board::Board(int w, int h)
+Board::Board(int h, int w)
     : height(h), width(w), canvas(h, std::vector<char>(w,' ')){}
 
 void Board::print(){

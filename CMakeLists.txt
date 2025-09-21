@@ -9,6 +9,8 @@ add_executable(oopd_assignment1_2025_daryna_danyliuk
         Board.cpp
         Board.h
         main.cpp
-        Shape.cpp
         Shape.h
+        Rectangle.cpp
+        Rectangle.h
+        Shape.cpp
 )
