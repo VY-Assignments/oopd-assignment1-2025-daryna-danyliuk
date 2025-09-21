@@ -8,12 +8,10 @@
 class Circle : public Shape {
 private:
     int radius;
-    int centre;
     Colour colour;
     FillStat fill;
 public:
-    Circle( int id, int x, int y, int r, int cr, Colour c, FillStat f);
-    
+    Circle( int id, int x, int y, int r, Colour c, FillStat f);
     void draw(Board& board) override;
     void edit() override;
     void move(int newX, int newY) override;
@@ -21,7 +19,5 @@ public:
     std::string info() override;
 
 };
-
-
 
 #endif //CIRCLE_H
