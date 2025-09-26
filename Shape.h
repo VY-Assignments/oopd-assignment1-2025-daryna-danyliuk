@@ -1,8 +1,10 @@
 ﻿#ifndef SHAPE_H
 #define SHAPE_H
-#include "Board.h"
+
+#pragma once
 #include <iostream>
 #include <string>
+class Board;
 
 enum class Colour {
     GREEN,

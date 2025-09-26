@@ -12,7 +12,7 @@ void Circle :: draw(Board& board) {
     }
     char symbol = colourToChar(this->colour);
     switch (fill) {
-        case FillStat::FRAME:
+        case FillStat::FRAME: {
             int frameBorder = 1;
             for (int y = yCoord  - radius; y <= yCoord + radius; ++y ) {
                 for (int x = xCoord - radius; x <= xCoord + radius; ++x) {
@@ -25,6 +25,7 @@ void Circle :: draw(Board& board) {
                 }
             }
             break;
+        }
         case FillStat::FILLED:
             for (int y = yCoord  - radius; y <= yCoord + radius; ++y ) {
                 for (int x = xCoord - radius; x <= xCoord + radius; ++x) {
@@ -38,5 +39,21 @@ void Circle :: draw(Board& board) {
             }
             break;
     }
+}
+void Circle::edit() {
+    // тимчасова реалізація
+}
+
+void Circle::move(int dx, int dy) {
+    dx = 0;
+    dy = 0;
+}
+
+void Circle::paint(Colour c) {
+    colour = c;
+}
+
+std::string Circle::info() {
+    return "Circle info";
 }
 

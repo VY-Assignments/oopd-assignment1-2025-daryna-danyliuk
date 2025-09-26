@@ -31,3 +31,19 @@ void Rectangle :: draw(Board& board) {
             break;
     }
 }
+void Rectangle::edit() {
+    // тимчасова реалізація
+}
+
+void Rectangle::move(int dx, int dy) {
+     dx = 0 ;
+     dy = 0;
+}
+
+void Rectangle::paint(Colour c) {
+    colour = c;
+}
+
+std::string Rectangle::info() {
+    return "Rectangle info";
+}

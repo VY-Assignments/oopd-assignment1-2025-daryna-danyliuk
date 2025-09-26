@@ -1,4 +1,5 @@
 ﻿#include "Board.h"
+#include "Shape.h"
 #include <vector>
 #include <iostream>
 
