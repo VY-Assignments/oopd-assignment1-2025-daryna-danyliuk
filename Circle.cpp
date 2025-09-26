@@ -41,19 +41,15 @@ void Circle :: draw(Board& board) {
     }
 }
 void Circle::edit() {
-    // тимчасова реалізація
 }
 
 void Circle::move(int dx, int dy) {
-    dx = 0;
-    dy = 0;
+
 }
 
 void Circle::paint(Colour c) {
-    colour = c;
 }
 
 std::string Circle::info() {
-    return "Circle info";
 }
 
