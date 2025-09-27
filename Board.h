@@ -27,10 +27,13 @@ public:
     void addShape(std::unique_ptr<Shape> shapes);
     void drawAll();
     Shape* findById(int Id);
-    void removeShape(int Id);
+    bool selectShapeByCoordinates(int x, int y);
+    bool removeSelectedShape();
+    bool moveSelectedShape(int newX, int newY);
     bool selectShapeById(int Id);
     bool paintSelectedShape(Colour newColour);
     std::string getSelectedShapeInfo();
+    void Board::listAllShapes();
 
 };
 

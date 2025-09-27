@@ -2,8 +2,8 @@
 #include "Shape.h"
 #include <iostream>
 
-int cliInterface();
+int clInterface();
 
 int main() {
-    return cliInterface();
+    return clInterface();
 }

@@ -65,19 +65,46 @@ Shape* Board:: findById(int Id) {
     }
     return nullptr;
 }
+bool Board::selectShapeByCoordinates(int x, int y) {
+    for (auto it = shapes.rbegin(); it != shapes.rend(); ++it) {
+        if ((*it)->containsPoint(x, y)) {
+            selectedShape = it->get();
+            return true;
+        }
+    }
+    return false;
+}
 
-void Board :: removeShape(int Id) {
+bool Board::removeSelectedShape() {
+    if (selectedShape == nullptr) {
+        return false;
+    }
+    int idToRemove = selectedShape->getId();
+    selectedShape = nullptr;
     shapes.erase(
-    std::remove_if(shapes.begin(), shapes.end(),
-        [Id](const std::unique_ptr<Shape>& shape) {
-            return shape->getId() == Id;
-        }),
+        std::remove_if(shapes.begin(), shapes.end(),
+            [idToRemove](const std::unique_ptr<Shape>& shape) {
+                return shape->getId() == idToRemove;
+            }),
         shapes.end()
-        );
+    );
+    return true;
 }
 bool Board::selectShapeById(int id) {
     selectedShape = findById(id);
     return selectedShape != nullptr;
+}
+
+bool Board::moveSelectedShape(int newX, int newY) {
+    if (selectedShape == nullptr) {
+        return false;
+    }
+    if (isInside(newX, newY) == false) {
+        return false;
+    }
+
+    selectedShape->move(newX, newY);
+    return true;
 }
 
 bool Board::paintSelectedShape(Colour newColour) {
@@ -90,7 +117,16 @@ bool Board::paintSelectedShape(Colour newColour) {
 
 std::string Board::getSelectedShapeInfo() {
     if (selectedShape == nullptr) {
-        return "No shape selected";
+        return "No shape selected\n";
     }
     return selectedShape->info();
+}
+void Board::listAllShapes() {
+    if (shapes.empty()) {
+        std::cout << "No shapes on the board\n" << std::endl;
+        return;
+    }
+    for (const auto& shape : shapes) {
+        std::cout << shape->info()<< std::endl;
+    }
 }
