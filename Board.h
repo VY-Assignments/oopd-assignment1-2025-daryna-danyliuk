@@ -33,7 +33,7 @@ public:
     bool moveSelectedShape(int newX, int newY);
     bool selectShapeById(int Id);
     bool paintSelectedShape(Colour newColour);
-    bool editSelectedShape();
+    bool editSelectedShape(const std::string& property, const std::vector<std::string>& args);
     std::string getSelectedShapeInfo();
     void listAllShapes();
     int getIdCounter();

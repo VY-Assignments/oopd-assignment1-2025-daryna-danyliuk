@@ -50,8 +50,6 @@ bool Rectangle::containsPoint(int x, int y) const {
     }
     return false;
 }
-void Rectangle::edit() {
-}
 
 void Rectangle::move(int newX, int newY) {
     xCoord = newX;
@@ -68,4 +66,11 @@ std::string Rectangle::info() const {
            std::to_string(xCoord) + "," + std::to_string(yCoord) +
            ") " + colourToString(colour) + " " + fillToString(fill) +
            " " + std::to_string(width) + "x" + std::to_string(height);
+}
+
+void Rectangle::edit(const std::vector<int> &params) {
+    if (params.size() <= 2) {
+        width  = params[0];
+        height = params[1];
+    }
 }

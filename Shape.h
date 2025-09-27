@@ -4,6 +4,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <vector>
 class Board;
 
 enum class Colour {
@@ -32,13 +33,13 @@ protected:
 public:
     Shape(int id, int x, int y, Colour c, FillStat f) : id(id), xCoord(x), yCoord(y), colour(c), fill(f){}
     virtual void draw(Board&) = 0;
-    virtual void edit() = 0;
     virtual void move(int newX, int newY) = 0;
     virtual void paint(Colour) = 0;
     virtual std::string info() const = 0;
     virtual bool containsPoint(int x, int y) const = 0;
     virtual ~Shape() = default;
     int getId() const;
+    virtual void edit (const std::vector<int>& params) = 0;
     Colour getColour() const;
     FillStat getFill() const;
 

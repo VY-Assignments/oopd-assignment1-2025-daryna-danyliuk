@@ -58,8 +58,6 @@ bool Diamond::containsPoint(int x, int y) const {
     }
     return false;
 }
-void Diamond::edit() {
-}
 
 void Diamond::move(int newX, int newY) {
     xCoord = newX;
@@ -75,4 +73,10 @@ std::string Diamond::info() const {
            std::to_string(xCoord) + "," + std::to_string(yCoord) +
            ") " + colourToString(colour) + " " + fillToString(fill) +
            " " + std::to_string(width) + "x" + std::to_string(height);;
+}
+void Diamond::edit(const std::vector<int> &params) {
+    if (params.size() <= 2) {
+        width  = params[0];
+        height = params[1];
+    }
 }

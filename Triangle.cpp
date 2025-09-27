@@ -60,9 +60,6 @@ bool Triangle::containsPoint(int x, int y) const {
     return false;
 }
 
-void Triangle::edit() {
-}
-
 void Triangle::move(int newX, int newY) {
     xCoord = newX;
     yCoord = newY;
@@ -78,4 +75,8 @@ std::string Triangle::info() const {
            ") " + colourToString(colour) + " " + fillToString(fill) +
            " " + std::to_string(height);
 }
-
+void Triangle::edit(const std::vector<int> &params) {
+    if (params.size() == 1) {
+        height = params[0];
+    }
+}

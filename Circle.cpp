@@ -55,9 +55,6 @@ bool Circle::containsPoint(int x, int y) const {
     return false;
 }
 
-void Circle::edit() {
-}
-
 void Circle::move(int newX, int newY) {
     xCoord = newX;
     yCoord = newY;
@@ -74,4 +71,8 @@ std::string Circle::info() const {
            ") " + colourToString(colour) + " " + fillToString(fill) +
            " " + std::to_string(radius);
 }
-
+void Circle::edit(const std::vector<int> &params) {
+    if (params.size() == 1) {
+        radius  = params[0];
+    }
+}

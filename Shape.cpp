@@ -42,3 +42,4 @@ Colour Shape :: getColour() const {
 FillStat Shape :: getFill() const {
     return fill;
 };
+

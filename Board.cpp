@@ -121,11 +121,18 @@ std::string Board::getSelectedShapeInfo() {
     }
     return selectedShape->info();
 }
-bool Board::editSelectedShape() {
+bool Board::editSelectedShape(const std::string& property, const std::vector<std::string>& args) {
     if (selectedShape == nullptr) {
         return false;
     }
-    selectedShape->edit();
+    if (property == "size") {
+        std::vector<int> params;
+        for (const auto& arg : args) {
+            params.push_back(std::stoi(arg));
+        }
+        selectedShape->edit(params);
+        return true;
+    }
     return true;
 
 }

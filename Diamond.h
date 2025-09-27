@@ -13,12 +13,12 @@ private:
 public:
     Diamond (int id, int x, int y, int w, int h, Colour c, FillStat f);
     void draw(Board& board) override;
-    void edit() override;
     void move(int newX, int newY) override;
     void paint(Colour c) override;
     std::string info() const override;
     bool isInDiamond(int x, int y);
     bool containsPoint( int x, int y) const override;
+    void edit(const std::vector<int> &params) override;
 };
 
 
