@@ -76,6 +76,6 @@ std::string Triangle::info() const {
     return "Triangle " + std::to_string(id) + " at (" +
            std::to_string(xCoord) + "," + std::to_string(yCoord) +
            ") " + colourToString(colour) + " " + fillToString(fill) +
-           " " + "x" + std::to_string(height);
+           " " + std::to_string(height);
 }
 

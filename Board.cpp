@@ -121,6 +121,14 @@ std::string Board::getSelectedShapeInfo() {
     }
     return selectedShape->info();
 }
+bool Board::editSelectedShape() {
+    if (selectedShape == nullptr) {
+        return false;
+    }
+    selectedShape->edit();
+    return true;
+
+}
 void Board::listAllShapes() {
     if (shapes.empty()) {
         std::cout << "No shapes on the board\n" << std::endl;

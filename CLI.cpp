@@ -108,7 +108,7 @@ int clInterface() {
                     int dx = std::stoi(tokens[1]);
                     int dy = std::stoi(tokens[2]);
                     if (board.moveSelectedShape(dx, dy)) {
-                        std::cout << "Selected shape moved by (" << dx << "," << dy << ")\n";
+                        std::cout << "Selected shape moved to (" << dx << "," << dy << ")\n";
                     } else {
                         std::cout << "No shape is currently selected.\n";
                     }
@@ -124,6 +124,9 @@ int clInterface() {
             else {
                 std::cout << "No shape is currently selected.\n";
             }
+        }
+        else if (cmd == "info") {
+            std::cout << board.getSelectedShapeInfo();
         }
         else if (cmd == "add") {
             if (tokens.size() < 5) {
