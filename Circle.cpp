@@ -3,7 +3,7 @@
 #include "Board.h"
 
 Circle::Circle(int id, int x, int y, int r, Colour c, FillStat f)
-    :Shape(id, x, y), radius(r), colour(c), fill(f) {}
+    :Shape(id, x, y, c, f), radius(r){}
 
 void Circle :: draw(Board& board) {
     if (radius <= 0) {
@@ -58,13 +58,20 @@ bool Circle::containsPoint(int x, int y) const {
 void Circle::edit() {
 }
 
-void Circle::move(int dx, int dy) {
-
+void Circle::move(int newX, int newY) {
+    xCoord = newX;
+    yCoord = newY;
 }
 
-void Circle::paint(Colour c) {
+void Circle::paint(Colour newColour) {
+    colour = newColour;
+
 }
 
 std::string Circle::info() {
+    return "Circle " + std::to_string(id) + " at (" +
+           std::to_string(xCoord) + "," + std::to_string(yCoord) +
+           ") " + colourToString(colour) + " " + fillToString(fill) +
+           " " + std::to_string(radius);
 }
 

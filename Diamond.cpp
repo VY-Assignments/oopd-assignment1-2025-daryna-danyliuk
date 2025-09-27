@@ -1,9 +1,11 @@
 ﻿#include "Diamond.h"
 #include "Shape.h"
 #include "Board.h"
+#include <cmath>
+
 
 Diamond::Diamond(int id, int x, int y, int w, int h, Colour c, FillStat f)
-    :Shape(id, x, y), width(w), height(h), colour(c), fill(f) {}
+    :Shape(id, x, y, c ,f), width(w), height(h){}
 
 bool Diamond :: isInDiamond(int x, int y) {
     int dx = abs(x - xCoord);
@@ -55,4 +57,22 @@ bool Diamond::containsPoint(int x, int y) const {
             return value <= 1;
     }
     return false;
+}
+void Diamond::edit() {
+}
+
+void Diamond::move(int newX, int newY) {
+    xCoord = newX;
+    yCoord = newY;
+}
+
+void Diamond::paint(Colour newColour) {
+    colour = newColour;
+}
+
+std::string Diamond::info() const {
+    return "RDiamond " + std::to_string(id) + " at (" +
+           std::to_string(xCoord) + "," + std::to_string(yCoord) +
+           ") " + colourToString(colour) + " " + fillToString(fill) +
+           " " + std::to_string(width) + "x" + std::to_string(height);;
 }

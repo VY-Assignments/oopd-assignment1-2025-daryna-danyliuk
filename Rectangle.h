@@ -9,8 +9,6 @@ class Rectangle : public Shape {
 private:
     int width;
     int height;
-    Colour colour;
-    FillStat fill;
 
 public:
     Rectangle(int id, int x, int y, int w, int h, Colour c, FillStat f);
@@ -19,7 +17,7 @@ public:
     void move(int newX, int newY) override;
     void paint(Colour c) override;
     bool containsPoint( int x, int y) const override;
-    std::string info() override;
+    std::string info() const override;
 };
 
 #endif // RECTANGLE_H

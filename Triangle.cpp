@@ -4,7 +4,7 @@
 #include <algorithm>
 
 Triangle::Triangle(int id, int x, int y, int h, Colour c, FillStat f)
-    :Shape(id, x, y), height(h), colour(c), fill(f) {}
+    :Shape(id, x, y, c, f), height(h) {}
 
 void Triangle :: draw(Board& board) {
     if (height <= 0) {
@@ -60,4 +60,22 @@ bool Triangle::containsPoint(int x, int y) const {
     return false;
 }
 
+void Triangle::edit() {
+}
+
+void Triangle::move(int newX, int newY) {
+    xCoord = newX;
+    yCoord = newY;
+}
+
+void Triangle::paint(Colour newColour) {
+    colour = newColour;
+}
+
+std::string Triangle::info() const {
+    return "Triangle " + std::to_string(id) + " at (" +
+           std::to_string(xCoord) + "," + std::to_string(yCoord) +
+           ") " + colourToString(colour) + " " + fillToString(fill) +
+           " " + "x" + std::to_string(height);
+}
 

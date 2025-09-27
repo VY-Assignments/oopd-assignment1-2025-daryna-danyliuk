@@ -8,8 +8,6 @@
 class Circle : public Shape {
 private:
     int radius;
-    Colour colour;
-    FillStat fill;
 public:
     Circle( int id, int x, int y, int r, Colour c, FillStat f);
     void draw(Board& board) override;

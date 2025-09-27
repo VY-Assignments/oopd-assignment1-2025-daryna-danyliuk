@@ -3,7 +3,7 @@
 #include "Board.h"
 
 Rectangle::Rectangle(int id, int x, int y, int w, int h, Colour c, FillStat f)
-    :Shape(id, x, y), width(w), height(h), colour(c), fill(f) {}
+    :Shape(id, x, y, c, f), width(w), height(h) {}
 
 void Rectangle :: draw(Board& board) {
     if (width <= 0 || height <= 0) {
@@ -53,11 +53,19 @@ bool Rectangle::containsPoint(int x, int y) const {
 void Rectangle::edit() {
 }
 
-void Rectangle::move(int dx, int dy) {
+void Rectangle::move(int newX, int newY) {
+    xCoord = newX;
+    yCoord = newY;
 }
 
-void Rectangle::paint(Colour c) {
+void Rectangle::paint(Colour newColour) {
+    colour = newColour;
+
 }
 
-std::string Rectangle::info() {
+std::string Rectangle::info() const {
+    return "Rectangle " + std::to_string(id) + " at (" +
+           std::to_string(xCoord) + "," + std::to_string(yCoord) +
+           ") " + colourToString(colour) + " " + fillToString(fill) +
+           " " + std::to_string(width) + "x" + std::to_string(height);
 }
