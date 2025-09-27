@@ -18,7 +18,7 @@ public:
     int getWidth() const;
     int getHeight() const;
     bool setCell(int x, int y, char ch);
-    Board (int h, int w);
+    Board (int w, int h);
     void clear();
     void print();
     void addShape(std::unique_ptr<Shape> shapes);

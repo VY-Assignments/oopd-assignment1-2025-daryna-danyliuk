@@ -5,7 +5,7 @@
 
 
 
-class Diamond : Shape {
+class Diamond : public Shape {
 private:
     int width;
     int height;

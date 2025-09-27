@@ -27,7 +27,7 @@ void Diamond :: draw(Board& board) {
                 }
             int dx = abs(i -xCoord);
             int dy = abs(j - yCoord);
-            if (isInDiamond) {
+            if (isInDiamond(i, j)) {
                 switch (fill) {
                     case FillStat::FRAME:
                         if (isEndPoint) {

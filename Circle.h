@@ -16,6 +16,7 @@ public:
     void edit() override;
     void move(int newX, int newY) override;
     void paint(Colour c) override;
+    bool containsPoint( int x, int y) const override;
     std::string info() override;
 
 };

@@ -1,7 +1,5 @@
 ﻿#include "Board.h"
-
 #include <algorithm>
-
 #include "Shape.h"
 #include <vector>
 #include <iostream>
@@ -64,10 +62,8 @@ Shape* Board:: findById(int Id) {
             return shape.get();
 
         }
-        else {
-            return nullptr;
-        }
     }
+    return nullptr;
 }
 
 void Board :: removeShape(int Id) {
@@ -78,5 +74,4 @@ void Board :: removeShape(int Id) {
         }),
         shapes.end()
         );
-    drawAll();
 }

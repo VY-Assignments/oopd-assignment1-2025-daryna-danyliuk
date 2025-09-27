@@ -31,6 +31,25 @@ void Rectangle :: draw(Board& board) {
             break;
     }
 }
+bool Rectangle::containsPoint(int x, int y) const {
+    switch (fill) {
+        case FillStat :: FRAME:
+            if ((y == yCoord || y == yCoord + height -1)  && x >= xCoord && x < xCoord + width) {
+                return true;
+            }
+            if ((x == xCoord || x == xCoord + width - 1) && y >= yCoord && y < yCoord + height) {
+                return true;
+                }
+            break;
+        case FillStat :: FILLED:
+            if ( xCoord <= x  && x < xCoord + width &&
+                yCoord <= y && y < yCoord + height) {
+                return true;
+            }
+            break;
+    }
+    return false;
+}
 void Rectangle::edit() {
 }
 

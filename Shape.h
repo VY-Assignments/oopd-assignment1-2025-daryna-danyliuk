@@ -33,10 +33,9 @@ public:
     virtual void move(int newX, int newY) = 0;
     virtual void paint(Colour) = 0;
     virtual std::string info() = 0;
-    int getId() const;
+    virtual bool containsPoint(int x, int y) const = 0;
     virtual ~Shape() = default;
+    int getId() const;
 };
-
-
 
 #endif //SHAPE_H
