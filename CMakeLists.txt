@@ -19,4 +19,5 @@ add_executable(oopd_assignment1_2025_daryna_danyliuk
         Triangle.h
         Diamond.cpp
         Diamond.h
+        CLI.cpp
 )
