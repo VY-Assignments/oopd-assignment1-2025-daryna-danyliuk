@@ -4,6 +4,7 @@
 #pragma once
 #include <vector>
 #include <memory>
+#include "Shape.h"
 
 class Shape;
 
@@ -11,8 +12,10 @@ class Board {
 private:
     int width;
     int height;
+    Shape* selectedShape = nullptr;
     std::vector<std::vector<char>> canvas;
     std::vector<std::unique_ptr<Shape>> shapes;
+
 public:
     bool isInside(int x, int y) const;
     int getWidth() const;
@@ -25,6 +28,10 @@ public:
     void drawAll();
     Shape* findById(int Id);
     void removeShape(int Id);
+    bool selectShapeById(int Id);
+    bool paintSelectedShape(Colour newColour);
+    std::string getSelectedShapeInfo();
+
 };
 
 

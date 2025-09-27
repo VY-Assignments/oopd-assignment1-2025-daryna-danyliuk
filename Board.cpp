@@ -75,3 +75,22 @@ void Board :: removeShape(int Id) {
         shapes.end()
         );
 }
+bool Board::selectShapeById(int id) {
+    selectedShape = findById(id);
+    return selectedShape != nullptr;
+}
+
+bool Board::paintSelectedShape(Colour newColour) {
+    if (selectedShape == nullptr) {
+        return false;
+    }
+    selectedShape->paint(newColour);
+    return true;
+}
+
+std::string Board::getSelectedShapeInfo() {
+    if (selectedShape == nullptr) {
+        return "No shape selected";
+    }
+    return selectedShape->info();
+}
