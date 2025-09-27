@@ -40,6 +40,21 @@ void Circle :: draw(Board& board) {
             break;
     }
 }
+
+bool Circle::containsPoint(int x, int y) const {
+    int dx = x - xCoord;
+    int dy = y - yCoord;
+    int squaredDistance = dx*dx + dy*dy;
+
+    switch (fill) {
+        case FillStat::FRAME:
+            return abs(squaredDistance - radius*radius) <= 1;
+        case FillStat::FILLED:
+            return squaredDistance <= radius*radius;
+    }
+    return false;
+}
+
 void Circle::edit() {
 }
 

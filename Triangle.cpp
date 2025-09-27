@@ -28,5 +28,36 @@ void Triangle :: draw(Board& board) {
 
         }
     }
-
 }
+
+bool Triangle::containsPoint(int x, int y) const {
+    if (y < yCoord || y >= yCoord + height) {
+        return false;
+    }
+
+    int vertex = y - yCoord;
+
+    int leftMost  = xCoord - vertex;
+    int rightMost = xCoord + vertex;
+
+    switch (fill) {
+        case FillStat::FRAME:
+            if (x == leftMost || x == rightMost || vertex == height - 1) {
+                return true;
+            }
+            else {
+                return false;
+            }
+
+        case FillStat::FILLED:
+            if (x >= leftMost && x <= rightMost) {
+                return true;
+            }
+            else {
+                return false;
+            }
+    }
+    return false;
+}
+
+

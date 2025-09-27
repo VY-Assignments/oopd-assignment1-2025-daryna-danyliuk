@@ -39,8 +39,20 @@ void Diamond :: draw(Board& board) {
                         break;
                 }
             }
-
         }
-
     }
+}
+
+bool Diamond::containsPoint(int x, int y) const {
+    int dx = abs(x - xCoord);
+    int dy = abs(y - yCoord);
+
+    double value = (dx * 2.0 / width) + (dy * 2.0 / height);
+    switch (fill) {
+        case FillStat :: FRAME:
+            return fabs(value - 1.0) < 0.1;
+        case FillStat :: FILLED:
+            return value <= 1;
+    }
+    return false;
 }

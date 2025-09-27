@@ -20,6 +20,7 @@ public:
     void paint(Colour c) override;
     std::string info() override;
     bool isInDiamond(int x, int y);
+    bool containsPoint( int x, int y) const override;
 };
 
 
