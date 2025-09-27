@@ -33,6 +33,7 @@ public:
     virtual void move(int newX, int newY) = 0;
     virtual void paint(Colour) = 0;
     virtual std::string info() = 0;
+    int getId() const;
     virtual ~Shape() = default;
 };
 

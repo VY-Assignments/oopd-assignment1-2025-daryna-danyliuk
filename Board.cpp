@@ -1,7 +1,11 @@
 ﻿#include "Board.h"
+
+#include <algorithm>
+
 #include "Shape.h"
 #include <vector>
 #include <iostream>
+#include <memory>
 
 Board::Board(int w, int h)
     : width(w), height(h), canvas(h, std::vector<char>(w,' ')){}
@@ -42,4 +46,37 @@ int Board::getWidth() const {
 int Board::getHeight() const {
     return height;
 }
+void Board::addShape(std::unique_ptr<Shape> shape) {
+    shapes.push_back(std::move(shape));
+}
+void Board:: drawAll() {
+    clear();
+    for (std::unique_ptr<Shape>& shape : shapes) {
+        shape->draw(*this);
+    }
+    print();
+}
 
+Shape* Board:: findById(int Id) {
+    for (std::unique_ptr<Shape>& shape : shapes) {
+        if (shape -> getId() == Id)
+        {
+            return shape.get();
+
+        }
+        else {
+            return nullptr;
+        }
+    }
+}
+
+void Board :: removeShape(int Id) {
+    shapes.erase(
+    std::remove_if(shapes.begin(), shapes.end(),
+        [Id](const std::unique_ptr<Shape>& shape) {
+            return shape->getId() == Id;
+        }),
+        shapes.end()
+        );
+    drawAll();
+}

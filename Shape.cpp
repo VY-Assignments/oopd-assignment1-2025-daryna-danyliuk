@@ -15,3 +15,6 @@ char Shape::colourToChar(Colour c) {
             return '*';
     }
 }
+int Shape :: getId() const {
+    return id;
+}

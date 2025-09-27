@@ -21,6 +21,10 @@ public:
     Board (int h, int w);
     void clear();
     void print();
+    void addShape(std::unique_ptr<Shape> shapes);
+    void drawAll();
+    Shape* findById(int Id);
+    void removeShape(int Id);
 };
 
 
