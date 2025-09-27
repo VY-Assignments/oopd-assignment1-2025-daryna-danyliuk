@@ -12,6 +12,7 @@ class Board {
 private:
     int width;
     int height;
+    int IdCounter = 1;
     Shape* selectedShape = nullptr;
     std::vector<std::vector<char>> canvas;
     std::vector<std::unique_ptr<Shape>> shapes;
@@ -33,7 +34,8 @@ public:
     bool selectShapeById(int Id);
     bool paintSelectedShape(Colour newColour);
     std::string getSelectedShapeInfo();
-    void Board::listAllShapes();
+    void listAllShapes();
+    int getIdCounter();
 
 };
 

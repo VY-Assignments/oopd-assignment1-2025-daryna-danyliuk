@@ -32,6 +32,7 @@ std::string Shape::fillToString(FillStat f) {
         default: return "unknown";
     }
 }
+
 int Shape :: getId() const {
     return id;
 }

@@ -68,7 +68,7 @@ void Circle::paint(Colour newColour) {
 
 }
 
-std::string Circle::info() {
+std::string Circle::info() const {
     return "Circle " + std::to_string(id) + " at (" +
            std::to_string(xCoord) + "," + std::to_string(yCoord) +
            ") " + colourToString(colour) + " " + fillToString(fill) +

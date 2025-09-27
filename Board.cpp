@@ -130,3 +130,6 @@ void Board::listAllShapes() {
         std::cout << shape->info()<< std::endl;
     }
 }
+int Board :: getIdCounter() {
+    return IdCounter ++;
+}
