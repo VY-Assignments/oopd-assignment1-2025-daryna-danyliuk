@@ -75,8 +75,15 @@ std::string Triangle::info() const {
            ") " + colourToString(colour) + " " + fillToString(fill) +
            " " + std::to_string(height);
 }
-void Triangle::edit(const std::vector<int> &params) {
-    if (params.size() == 1) {
-        height = params[0];
+bool Triangle::edit(const std::vector<int>& params) {
+    if (params.empty()) {
+        std::cerr << "Error: edit requires positive integer parameter (height)\n";
+        return false;
     }
+    if (params[0] <= 0) {
+        std::cerr << "Error: height must be positive\n";
+        return false;
+    }
+    height = params[0];
+    return true;
 }

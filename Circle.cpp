@@ -71,8 +71,16 @@ std::string Circle::info() const {
            ") " + colourToString(colour) + " " + fillToString(fill) +
            " " + std::to_string(radius);
 }
-void Circle::edit(const std::vector<int> &params) {
-    if (params.size() == 1) {
-        radius  = params[0];
+bool Circle::edit(const std::vector<int>& params) {
+    if (params.empty()) {
+        std::cerr << "Error: edit requires positive integer parameter (radius)\n";
+        return false;
     }
+    if (params[0] <= 0) {
+        std::cerr << "Error: height must be positive\n";
+        return false;
+    }
+    radius = params[0];
+    return true;
 }
+

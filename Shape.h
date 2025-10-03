@@ -39,7 +39,7 @@ public:
     virtual bool containsPoint(int x, int y) const = 0;
     virtual ~Shape() = default;
     int getId() const;
-    virtual void edit (const std::vector<int>& params) = 0;
+    virtual bool edit(const std::vector<int>& params) = 0;
     Colour getColour() const;
     FillStat getFill() const;
 

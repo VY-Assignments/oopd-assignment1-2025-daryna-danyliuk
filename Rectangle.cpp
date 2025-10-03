@@ -68,9 +68,18 @@ std::string Rectangle::info() const {
            " " + std::to_string(width) + "x" + std::to_string(height);
 }
 
-void Rectangle::edit(const std::vector<int> &params) {
-    if (params.size() <= 2) {
-        width  = params[0];
-        height = params[1];
+bool Rectangle::edit(const std::vector<int>& params) {
+    if (params.empty()) {
+        std::cerr << "Error: edit requires positive integer parameters (width and height)\n";
+        return false;
     }
+    if (params[0] <= 0) {
+        std::cerr << "Error: height must be positive\n";
+        return false;
+    }
+    width = params[0];
+    height = params[1];
+    return true;
 }
+
+

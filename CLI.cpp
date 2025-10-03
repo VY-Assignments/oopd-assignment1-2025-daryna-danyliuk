@@ -149,15 +149,12 @@ int clInterface() {
             }
         }
         else if (cmd == "edit") {
-            if (tokens.size() < 3) {
-                std::cout << "Usage: edit <property> <params...>\n";
+            if (tokens.size() < 2) {
+                std::cout << "Usage: edit <params>\n";
                 continue;
             }
-
-            std::string property = tokens[1];
-            std::vector<std::string> args(tokens.begin() + 2, tokens.end());
-
-            if (board.editSelectedShape(property, args)) {
+            std::vector<std::string> args(tokens.begin() + 1, tokens.end());
+            if (board.editSelectedShape(args)) {
                 std::cout << "Shape edited successfully.\n";
             } else {
                 std::cout << "Failed to edit shape.\nCheck property and arguments.\n";

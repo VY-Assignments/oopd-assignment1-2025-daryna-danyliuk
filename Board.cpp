@@ -137,21 +137,15 @@ std::string Board::getSelectedShapeInfo() {
     }
     return selectedShape->info();
 }
-bool Board::editSelectedShape(const std::string& property, const std::vector<std::string>& args) {
-    if (selectedShape == nullptr) {
-        return false;
+bool Board::editSelectedShape(const std::vector<std::string>& args) {
+    if (selectedShape == nullptr) return false;
+    std::vector<int> params;
+    for (const auto& arg : args) {
+        params.push_back(std::stoi(arg));
     }
-    if (property == "size") {
-        std::vector<int> params;
-        for (const auto& arg : args) {
-            params.push_back(std::stoi(arg));
-        }
-        selectedShape->edit(params);
-        return true;
-    }
-    return true;
-
+    return selectedShape->edit(params);;
 }
+
 void Board::listAllShapes() {
     if (shapes.empty()) {
         std::cout << "No shapes on the board\n" << std::endl;
