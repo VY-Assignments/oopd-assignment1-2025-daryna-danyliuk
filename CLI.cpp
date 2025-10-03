@@ -128,6 +128,26 @@ int clInterface() {
         else if (cmd == "info") {
             std::cout << board.getSelectedShapeInfo();
         }
+        else if (cmd == "paint") {
+            if (tokens.size() < 2) {
+                std::cout << "Usage: paint <color>\n";
+                continue;
+            }
+            Colour newColour;
+            if (tokens[1] == "red") newColour = Colour::RED;
+            else if (tokens[1] == "green") newColour = Colour::GREEN;
+            else if (tokens[1] == "blue") newColour = Colour::BLUE;
+            else if (tokens[1] == "purple") newColour = Colour::PURPLE;
+            else {
+                std::cout << "Unknown color: " << tokens[1] << std::endl;
+                continue;
+            }
+            if (board.paintSelectedShape(newColour)) {
+                std::cout << "Shape painted.\n";
+            } else {
+                std::cout << "No shape is currently selected.\n";
+            }
+        }
         else if (cmd == "edit") {
             if (tokens.size() < 3) {
                 std::cout << "Usage: edit <property> <params...>\n";

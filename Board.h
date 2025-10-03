@@ -18,6 +18,7 @@ private:
     std::vector<std::unique_ptr<Shape>> shapes;
 
 public:
+    void bringToFront(Shape* shape);
     bool isInside(int x, int y) const;
     int getWidth() const;
     int getHeight() const;

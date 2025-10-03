@@ -65,10 +65,25 @@ Shape* Board:: findById(int Id) {
     }
     return nullptr;
 }
+void Board::bringToFront(Shape* shape) {
+    if (!shape) return;
+    auto it = std::find_if(shapes.begin(), shapes.end(),
+        [shape](const std::unique_ptr<Shape>& s) {
+            return s.get() == shape;
+        }
+        );
+
+    if (it != shapes.end()) {
+        std::unique_ptr<Shape> tmp = std::move(*it);
+        shapes.erase(it);
+        shapes.push_back(std::move(tmp));
+    }
+}
 bool Board::selectShapeByCoordinates(int x, int y) {
     for (auto it = shapes.rbegin(); it != shapes.rend(); ++it) {
         if ((*it)->containsPoint(x, y)) {
             selectedShape = it->get();
+            bringToFront(selectedShape);
             return true;
         }
     }
@@ -92,6 +107,7 @@ bool Board::removeSelectedShape() {
 }
 bool Board::selectShapeById(int id) {
     selectedShape = findById(id);
+    bringToFront(selectedShape);
     return selectedShape != nullptr;
 }
 
@@ -148,3 +164,4 @@ void Board::listAllShapes() {
 int Board :: getIdCounter() {
     return IdCounter ++;
 }
+
